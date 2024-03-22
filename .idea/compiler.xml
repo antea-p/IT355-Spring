@@ -6,8 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="IT355-DZ04-AnteaPrimorac-5157" />
+        <module name="IT355-DZ05-AnteaPrimorac-5157" />
+        <module name="IT355-L04-primer4" />
         <module name="IT355-DZ01-Maven-AnteaPrimorac-5157" />
+        <module name="DomaciZadatak2" />
+        <module name="student-reader" />
+        <module name="IT355-DZ04-AnteaPrimorac-5157" />
         <module name="IT355-DZ02-AnteaPrimorac-5157" />
       </profile>
     </annotationProcessing>
@@ -17,6 +21,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="IT355-DZ01-Maven-AnteaPrimorac-5157" options="-parameters" />
       <module name="IT355-DZ02-AnteaPrimorac-5157" options="" />
+      <module name="student-reader" options="-parameters" />
     </option>
   </component>
 </project>

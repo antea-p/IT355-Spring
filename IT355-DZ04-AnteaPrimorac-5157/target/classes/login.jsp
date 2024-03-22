@@ -15,7 +15,6 @@
     if ("true".equals(error)) {
 %>
 <script type="text/javascript">
-    console.log("Executing script");
     alert('Invalid email or password.');
 </script>
 <%

@@ -1,0 +1,52 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+td, form {
+    background-color: #f0f0f0;
+}
+
+th {
+    background-color: lightgray;
+}
+
+.error {
+    color: red;
+}
+
+form {
+    padding: 20px;
+    border: 2px solid #000;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+input[type="text"], select {
+    padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000;
+    box-shadow: none;
+}
+
+button {
+    padding: 5px 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000;
+    font-weight: bold;
+}
+
