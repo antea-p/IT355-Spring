@@ -9,18 +9,22 @@
         <module name="IT355-DZ05-AnteaPrimorac-5157" />
         <module name="IT355-L04-primer4" />
         <module name="IT355-DZ01-Maven-AnteaPrimorac-5157" />
+        <module name="IT355-DZ06-AnteaPrimorac" />
         <module name="DomaciZadatak2" />
         <module name="student-reader" />
         <module name="IT355-DZ04-AnteaPrimorac-5157" />
         <module name="IT355-DZ02-AnteaPrimorac-5157" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="IT355-DZ06-AnteaPrimorac-5157" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="IT355-DZ01-Maven-AnteaPrimorac-5157" options="-parameters" />
       <module name="IT355-DZ02-AnteaPrimorac-5157" options="" />
+      <module name="IT355-DZ06-AnteaPrimorac" options="-parameters" />
       <module name="student-reader" options="-parameters" />
     </option>
   </component>

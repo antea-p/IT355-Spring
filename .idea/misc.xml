@@ -24,7 +24,14 @@
         <option value="$PROJECT_DIR$/IT355-DZ02-AnteaPrimorac-5157/pom.xml" />
         <option value="$PROJECT_DIR$/IT355-DZ04-AnteaPrimorac-5157/pom.xml" />
         <option value="$PROJECT_DIR$/IT355-DZ05-AnteaPrimorac-5157/pom.xml" />
+        <option value="$PROJECT_DIR$/IT355-DZ06-AnteaPrimorac-5157/pom.xml" />
+        <option value="$PROJECT_DIR$/IT355-DZ06-AnteaPrimorac/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/IT355-DZ06-AnteaPrimorac-5157/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
