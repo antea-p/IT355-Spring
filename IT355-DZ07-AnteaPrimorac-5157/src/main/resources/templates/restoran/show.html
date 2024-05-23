@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Restoran</title>
+    <link th:replace="~{fragments :: bootstrap-css}">
+</head>
+<body>
+    <div th:replace="~{fragments :: header}"></div>
+    <div class="container mt-4">
+        <h2>Pregledaj restoran</h2>
+        <div class="card">
+            <div class="card-body">
+                <p><b>Naziv:</b> <span th:text="${restoran.naziv}">Naziv</span></p>
+                <p><b>Adresa:</b> <span th:text="${restoran.adresa}">Adresa</span></p>
+                <p><b>Telefon:</b> <span th:text="${restoran.telefon}">Telefon</span></p>
+                <p><b>Ocena:</b> <span th:text="${restoran.ocena}">Ocena</span></p>
+                <div>
+                    <a th:href="@{/restoran/edit/{id}(id=${restoran.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/restoran/delete/{id}(id=${restoran.id})}" class="btn btn-danger"
+                       th:onclick="'return confirm(\'Jeste li sigurni?\');'">Delete</a>
+                    <a th:href="@{/restoran}" class="btn btn-secondary">Natrag na Restoran List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="~{fragments :: footer}"></div>
+    <script th:replace="~{fragments :: bootstrap-js}"></script>
+</body>
+</html>

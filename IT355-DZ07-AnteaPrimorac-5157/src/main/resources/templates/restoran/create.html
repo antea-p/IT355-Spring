@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Restoran</title>
+    <link th:replace="~{fragments :: bootstrap-css}">
+</head>
+<body>
+    <div th:replace="~{fragments :: header}"></div>
+    <div class="container mt-4">
+        <h1>Create Restoran</h1>
+        <form th:action="@{/restoran/save}" th:object="${restoran}" method="post">
+
+            <div class="mb-3">
+                <label for="naziv" class="form-label">Naziv:</label>
+                <input type="text" id="naziv" th:field="*{naziv}" class="form-control" required>
+                <div class="text-danger" th:if="${#fields.hasErrors('naziv')}" th:errors="*{naziv}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="adresa" class="form-label">Adresa:</label>
+                <input type="text" id="adresa" th:field="*{adresa}" class="form-control" required>
+                <div class="text-danger" th:if="${#fields.hasErrors('adresa')}" th:errors="*{adresa}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="telefon" class="form-label">Telefon:</label>
+                <input type="text" id="telefon" th:field="*{telefon}" class="form-control" required>
+                <div class="text-danger" th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="ocena" class="form-label">Ocena:</label>
+                <input type="number" step="0.01" id="ocena" th:field="*{ocena}" class="form-control" required>
+                <div class="text-danger" th:if="${#fields.hasErrors('ocena')}" th:errors="*{ocena}"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sačuvaj</button>
+        </form>
+        <a href="/restoran" class="btn btn-secondary mt-3">Natrag na Restoran List</a>
+    </div>
+
+    <div th:replace="~{fragments :: footer}"></div>
+    <script th:replace="~{fragments :: bootstrap-js}"></script>
+</body>
+</html>

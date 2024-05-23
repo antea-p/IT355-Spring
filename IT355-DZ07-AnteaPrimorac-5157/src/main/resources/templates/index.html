@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin CRUD</title>
+    <link th:replace="~{fragments :: bootstrap-css}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+    <div class="container mt-4">
+
+        <h1>Admin CRUD</h1>
+        <h2>Restoran</h2>
+        <ul>
+            <li><a th:href="@{/restoran}">List All Restorani</a></li>
+        </ul>
+
+        <h2>Jelo</h2>
+        <ul>
+            <li><a th:href="@{/jelo}">List All Jela</a></li>
+        </ul>
+    </div>
+
+    <div th:replace="~{fragments :: footer}"></div>
+    <script th:replace="~{fragments :: bootstrap-js}"></script>
+</body>
+</html>

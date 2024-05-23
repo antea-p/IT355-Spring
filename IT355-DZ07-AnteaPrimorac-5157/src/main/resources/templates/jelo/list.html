@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of Jela</title>
+    <link th:replace="~{fragments :: bootstrap-css}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+    <div class="container mt-4">
+        <h2>Jela</h2>
+        <form th:action="@{/jelo}" method="get" class="mb-3">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search by name..." name="naziv">
+                <button type="submit" class="btn btn-outline-secondary">Search</button>
+            </div>
+        </form>
+        <a th:href="@{/jelo/new}" class="btn btn-primary mb-3">Create New Jelo</a>
+        <div th:if="${not #lists.isEmpty(jela)}">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Naziv</th>
+                    <th>Opis</th>
+                    <th>Cena</th>
+                    <th>Restoran</th>
+                    <th>Akcije</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="jelo : ${jela}">
+                    <td th:text="${jelo.naziv}">Naziv</td>
+                    <td th:text="${jelo.opis}">Opis</td>
+                    <td th:text="${jelo.cena}">Cena</td>
+                    <td th:text="${jelo.restoran.getNaziv()}">Restoran</td>
+                    <td>
+                        <a th:href="@{/jelo/show/{id}(id=${jelo.id})}" class="btn btn-info btn-sm">View</a>
+                        <a th:href="@{/jelo/edit/{id}(id=${jelo.id})}" class="btn btn-secondary btn-sm">Edit</a>
+                        <a th:href="@{/jelo/delete/{id}(id=${jelo.id})}" class="btn btn-danger btn-sm"
+                           th:onclick="'return confirm(\'Jeste li sigurni?\');'">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments :: footer}"></div>
+    <script th:replace="~{fragments :: bootstrap-js}"></script>
+</body>
+</html>

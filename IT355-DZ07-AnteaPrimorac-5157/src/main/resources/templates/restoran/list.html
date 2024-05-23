@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Restorani</title>
+    <link th:replace="~{fragments :: bootstrap-css}">
+</head>
+<body>
+    <div th:replace="~{fragments :: header}"></div>
+
+    <div class="container mt-4">
+        <h2>Restorani</h2>
+        <a th:href="@{/restoran/create}" class="btn btn-primary mb-3">Create New Restoran</a>
+        <div th:if="${not #lists.isEmpty(restorani)}">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Naziv</th>
+                    <th>Adresa</th>
+                    <th>Telefon</th>
+                    <th>Ocena</th>
+                    <th>Akcije</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="restoran : ${restorani}">
+                    <td th:text="${restoran.naziv}">Naziv</td>
+                    <td th:text="${restoran.adresa}">Adresa</td>
+                    <td th:text="${restoran.telefon}">Telefon</td>
+                    <td th:text="${restoran.ocena}">Ocena</td>
+                    <td>
+                        <a th:href="@{/restoran/show/{id}(id=${restoran.id})}" class="btn btn-info btn-sm">View</a>
+                        <a th:href="@{/restoran/edit/{id}(id=${restoran.id})}" class="btn btn-primary btn-sm">Edit</a>
+                        <a th:href="@{/restoran/delete/{id}(id=${restoran.id})}" class="btn btn-danger btn-sm"
+                           th:onclick="'return confirm(\'Jeste li sigurni?\');'">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments :: footer}"></div>
+    <script th:replace="~{fragments :: bootstrap-js}"></script>
+</body>
+</html>

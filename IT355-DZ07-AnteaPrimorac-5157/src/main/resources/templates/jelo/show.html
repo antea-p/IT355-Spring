@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Jelo Details</title>
+    <link th:replace="~{fragments :: bootstrap-css}">
+</head>
+<body>
+    <div th:replace="~{fragments :: header}"></div>
+
+    <div class="container mt-4">
+        <h2>Pregledaj jelo</h2>
+        <div class="card">
+            <div class="card-body">
+                <p><b>Naziv:</b> <span th:text="${jelo.naziv}"></span></p>
+                <p><b>Opis:</b> <span th:text="${jelo.opis}"></span></p>
+                <p><b>Restoran:</b> <span th:text="${jelo.restoran.naziv}"></span></p>
+                <p><b>Cena:</b> <span th:text="${jelo.cena + ' RSD'}"></span></p>
+                <div>
+                    <a th:href="@{/jelo/edit/{id}(id=${jelo.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/jelo/delete/{id}(id=${jelo.id})}" class="btn btn-danger"
+                       th:onclick="'return confirm(\'Jeste li sigurni?\');'">Delete</a>
+                    <a th:href="@{/jelo}" class="btn btn-secondary">Natrag na Jelo List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="~{fragments :: footer}"></div>
+    <script th:replace="~{fragments :: bootstrap-js}"></script>
+</body>
+</html>

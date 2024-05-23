@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Jelo</title>
+    <link th:replace="~{fragments :: bootstrap-css}">
+</head>
+<body>
+    <div th:replace="~{fragments :: header}"></div>
+
+    <div class="container mt-4">
+        <h2>Edit Jelo</h2>
+        <form th:action="@{/jelo/save}" th:object="${jelo}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+
+            <div class="mb-3">
+                <label for="naziv" class="form-label">Naziv:</label>
+                <input type="text" class="form-control" id="naziv" th:field="*{naziv}" required>
+                <div class="text-danger" th:if="${#fields.hasErrors('naziv')}" th:errors="*{naziv}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="opis" class="form-label">Opis:</label>
+                <input type="text" class="form-control" id="opis" th:field="*{opis}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="cena" class="form-label">Cena:</label>
+                <input type="number" class="form-control" step=".01" id="cena" th:field="*{cena}" required>
+                <div class="text-danger" th:if="${#fields.hasErrors('cena')}" th:errors="*{cena}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="restoran" class="form-label">Restoran:</label>
+                <select id="restoran" th:field="*{restoran}" class="form-control">
+                    <option th:each="restoran : ${restorani}" th:value="${restoran.id}"
+                            th:selected="${restoran.id == jelo.restoran.id}" th:text="${restoran.naziv}"></option>
+                </select>
+                <div class="text-danger" th:if="${#fields.hasErrors('restoran')}" th:errors="*{restoran}"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sačuvaj</button>
+        </form>
+        <a href="/jelo" class="btn btn-secondary mt-3">Natrag na Jelo List</a>
+    </div>
+
+    <div th:replace="~{fragments :: footer}"></div>
+    <div th:replace="~{fragments :: bootstrap-js}"></div>
+</body>
+</html>

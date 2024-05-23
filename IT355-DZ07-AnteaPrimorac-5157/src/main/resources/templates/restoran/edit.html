@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Restoran</title>
+    <link th:replace="~{fragments :: bootstrap-css}">
+</head>
+<body>
+    <div th:replace="~{fragments :: header}"></div>
+    <div class="container mt-4">
+        <h1>Edit Restoran</h1>
+        <form th:action="@{/restoran/save}" th:object="${restoran}" method="post" class="needs-validation" novalidate>
+            <input type="hidden" th:field="*{id}"/>
+
+            <div class="mb-3">
+                <label for="naziv" class="form-label">Naziv:</label>
+                <input type="text" id="naziv" th:field="*{naziv}" class="form-control" required>
+                <div class="text-danger" th:if="${#fields.hasErrors('naziv')}" th:errors="*{naziv}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="adresa" class="form-label">Adresa:</label>
+                <input type="text" id="adresa" th:field="*{adresa}" class="form-control" required>
+                <div class="text-danger" th:if="${#fields.hasErrors('adresa')}" th:errors="*{adresa}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="telefon" class="form-label">Telefon:</label>
+                <input type="text" id="telefon" th:field="*{telefon}" class="form-control" required>
+                <div class="text-danger" th:if="${#fields.hasErrors('telefon')}" th:errors="*{telefon}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="ocena" class="form-label">Ocena:</label>
+                <input type="number" step="0.01" id="ocena" th:field="*{ocena}" class="form-control" required min="1">
+                <div class="text-danger" th:if="${#fields.hasErrors('ocena')}" th:errors="*{ocena}"></div>
+            </div>
+            <!-- bitno u očuvanju postojećih jela povezanih sa restoranom; ima funkciju sličnu skrivenom ID inputu -->
+            <div th:each="jelo : ${restoran.jela}">
+                <input type="hidden" th:field="*{jela[__${jeloStat.index}__].id}"/>
+                <input type="hidden" th:field="*{jela[__${jeloStat.index}__].naziv}"/>
+                <input type="hidden" th:field="*{jela[__${jeloStat.index}__].opis}"/>
+                <input type="hidden" th:field="*{jela[__${jeloStat.index}__].cena}"/>
+                <input type="hidden" th:field="*{jela[__${jeloStat.index}__].restoran.id}" th:value="${restoran.id}"/>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sačuvaj</button>
+        </form>
+        <a href="/restoran" class="btn btn-secondary mt-3">Natrag na Restoran List</a>
+    </div>
+
+    <div th:replace="~{fragments :: footer}"></div>
+    <script th:replace="~{fragments :: bootstrap-js}"></script>
+</body>
+</html>
